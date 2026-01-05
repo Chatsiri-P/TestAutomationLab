@@ -6,7 +6,7 @@ ${SERVER}    D:/KKU/SWEN_Lab4/StarterFiles/Registration.html
 ${BROWSER}    Chrome
 
 *** Test Cases ***
-UAT-Lab04-001-001
+Register Success
     Open Browser    ${SERVER}    ${BROWSER}
     Input Text    firstname    Somyod
     Input Text    lastname    Sodsai
@@ -14,11 +14,13 @@ UAT-Lab04-001-001
     Input Text    email    somyod@kkumail.com
     Input Text    phone    091-001-1234
     Click Button    registerButton
+    Location Should Contain    D:/KKU/SWEN_Lab4/StarterFiles/Success.html
 
-UAT-Lab04-001-002
+Register Success No Organization Info
     Open Browser    ${SERVER}    ${BROWSER}
     Input Text    firstname    Somyod
     Input Text    lastname    Sodsai
     Input Text    email    somyod@kkumail.com
     Input Text    phone    091-001-1234
     Click Button    registerButton
+    Location Should Contain    D:/KKU/SWEN_Lab4/StarterFiles/Success.html

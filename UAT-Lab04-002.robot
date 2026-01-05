@@ -6,46 +6,52 @@ ${SERVER}    D:/KKU/SWEN_Lab4/StarterFiles/Registration.html
 ${BROWSER}    Chrome
 
 *** Test Cases ***
-UAT-Lab04-002-001
+Empty First Name
     Open Browser    ${SERVER}    ${BROWSER}
     Input Text    lastname    Sodsai
     Input Text    organization    CS KKU
     Input Text    email    somyod@kkumail.com
     Input Text    phone    091-001-1234
     Click Button    registerButton
+    Element Should Contain    errors    Please enter your first name!!
 
-UAT-Lab04-002-002
+
+Empty Last Name
     Open Browser    ${SERVER}    ${BROWSER}
     Input Text    firstname    Somyod
     Input Text    organization    CS KKU
     Input Text    email    somyod@kkumail.com
     Input Text    phone    091-001-1234
     Click Button    registerButton
+    Element Should Contain    errors    Please enter your last name!!
 
-UAT-Lab04-002-003
+Empty First Name and Last Name
     Open Browser    ${SERVER}    ${BROWSER}
     Input Text    organization    CS KKU
     Input Text    email    somyod@kkumail.com
     Input Text    phone    091-001-1234
     Click Button    registerButton
+    Element Should Contain    errors    Please enter your name!!
 
-UAT-Lab04-002-004
-    Open Browser    ${SERVER}    ${BROWSER}
-    Input Text    firstname    Somyod
-    Input Text    lastname    Sodsai
-    Input Text    organization    CS KKU
-    Input Text    phone    091-001-1234
-    Click Button    registerButton
-
-UAT-Lab04-002-005
+Empty Email
     Open Browser    ${SERVER}    ${BROWSER}
     Input Text    firstname    Somyod
     Input Text    lastname    Sodsai
     Input Text    organization    CS KKU
+    Input Text    phone    091-001-1234
+    Click Button    registerButton
+    Element Should Contain    errors    Please enter your email!!
+
+Empty Phone Number
+    Open Browser    ${SERVER}    ${BROWSER}
+    Input Text    firstname    Somyod
+    Input Text    lastname    Sodsai
+    Input Text    organization    CS KKU
     Input Text    email    somyod@kkumail.com
     Click Button    registerButton
+    Element Should Contain    errors    Please enter your phone number!!
 
-UAT-Lab04-002-006
+Invalid Phone Number
     Open Browser    ${SERVER}    ${BROWSER}
     Input Text    firstname    Somyod
     Input Text    lastname    Sodsai
@@ -53,3 +59,4 @@ UAT-Lab04-002-006
     Input Text    email    somyod@kkumail.com
     Input Text    phone    1234
     Click Button    registerButton
+    Element Should Contain    errors    Please enter a valid phone number, e.g., 081-234-5678, 081 234 5678, or 081.234.5678
